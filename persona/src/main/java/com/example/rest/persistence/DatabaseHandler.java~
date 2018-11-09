@@ -1,0 +1,147 @@
+package com.example.rest.persistence;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.example.rest.utils.GlobalVariables;
+
+public class DatabaseHandler {
+
+	// docker
+//	private static final String DB_URL = "jdbc:mysql://db-mysql:3306/socialHub_accountManagement?useUnicode=true&characterEncoding=utf8";
+	// non docker
+	private static final String DB_URL = "jdbc:mysql://localhost:3307/socialHub_accountManagement?useUnicode=true&characterEncoding=utf8";
+	private static final String USER = "root";
+	private static final String PASS = "12345";
+	private static final String TABLE_NAME = "customers";
+
+	private static Connection getDBConection() {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			System.out.println("Where is your MySQL JDBC Driver?");
+			e.printStackTrace();
+			return null;
+		}
+		System.out.println("MySQL JDBC Driver Registered!");
+		// Connection connection = null;
+
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			System.out.println("Connected database successfully...");
+			return conn;
+		} catch (SQLException e) {
+			System.out.println("Connection Failed! Check output console");
+			e.printStackTrace();
+			return null;
+		} 
+//		finally {
+//			try {
+//				if (conn != null) {
+//					System.out.println("finally");
+//					conn.close();
+//				}
+//			} catch (SQLException se) {
+//				se.printStackTrace();
+//			} // end finally try
+//		}
+
+	}
+
+	public static ArrayList<String> getDistinctCities() {
+		ArrayList<String> cities = null;
+		Connection conn = getDBConection();
+		if (conn != null) {
+			cities = new ArrayList<>();
+			Statement stmt = null;
+			System.out.println("Creating statement...");
+			try {
+				stmt = conn.createStatement();
+				String sql = "select distinct city from "+TABLE_NAME+";";
+				ResultSet rs = stmt.executeQuery(sql);
+				// STEP 5: Extract data from result set
+				while (rs.next()) {
+					cities.add(rs.getString("city"));
+				}
+				rs.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				// finally block used to close resources
+				try {
+					if (stmt != null)
+						stmt.close();
+				} catch (SQLException se2) {
+				} // nothing we can do
+				try {
+					if (conn != null)
+						conn.close();
+				} catch (SQLException se) {
+					se.printStackTrace();
+				} // end finally try
+			}
+
+		}
+
+		return cities;
+	}
+
+	public static ArrayList<String[]> getCIFRecords() {
+		ArrayList<String[]> recordsArrayList = new ArrayList<>();
+		Connection conn = getDBConection();
+		if (conn != null) {
+			Statement stmt = null;
+			System.out.println("Creating statement...");
+			try {
+				stmt = conn.createStatement();
+				String sql = "select city,age,gender,customer_facebook_user_id,customer_twitter_user_id,fb_pos,fb_neg,tw_pos,tw_neg from "+TABLE_NAME+";";
+				ResultSet rs = stmt.executeQuery(sql);
+				// STEP 5: Extract data from result set
+				while (rs.next()) {
+					int i=0;
+					String[] record = new String[GlobalVariables.CIF_RECORD_LENGTH];
+					record[i++] = rs.getString("city");
+					record[i++] = rs.getString("age");
+					record[i++] = rs.getString("gender");
+//					record[i++] = rs.getString("activity");
+					record[i++] = rs.getString("customer_facebook_user_id");
+					record[i++] = rs.getString("customer_twitter_user_id");
+//					record[i++] = rs.getString("semantic");
+//					record[i++] = rs.getString("fb_interactions");
+//					record[i++] = rs.getString("tw_interactions");
+					record[i++] = rs.getString("fb_pos");
+					record[i++] = rs.getString("fb_neg");
+					record[i++] = rs.getString("tw_pos");
+					record[i++] = rs.getString("tw_neg");
+					
+					recordsArrayList.add(record);
+//					System.out.println(record[3]);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				// finally block used to close resources
+				try {
+					if (stmt != null)
+						stmt.close();
+				} catch (SQLException se2) {
+				} // nothing we can do
+				try {
+					if (conn != null)
+						conn.close();
+				} catch (SQLException se) {
+					se.printStackTrace();
+				} // end finally try
+			}
+		}
+		return recordsArrayList;
+	}
+
+}

@@ -1,0 +1,62 @@
+[
+	{
+		"Ethnicity":"African",
+		"Countries":["Angola","Burkina Faso,Burundi","Cameroon","Cape Verde","Central African Republic","Chad","Comoros"
+			,"Congo","Congo, The Democratic Republic of the","Cote D Ivoire","Equatorial Guinea","Eritrea","Ethiopia","Gabon","Gambia"
+			,"Ghana","Guinea","Kenya","Lesotho","Liberia","Madagascar","Malawi","Mali","Mozambique","Namibia","Niger","RWANDA"
+			,"Senegal","Seychelles","Sierra Leone","South Africa","Sudan","Tanzania, United Republic of","Togo","Uganda","Zambia"
+			,"Somalia","Botswana","Benin","Swaziland","Burkina Faso","Nigeria","Burundi"]
+	},
+	{
+		"Ethnicity":"Central Asia",
+		"Countries":["Kazakhstan", "Kyrgyzstan", "Tajikistan", "Uzbekistan", "Turkmenistan", "Pakistan"]
+	},
+	{
+		"Ethnicity":"Middle Eastern",
+		"Countries":["Algeria","Egypt","Lebanon","Libyan Arab Jamahiriya","Morocco","Palestinian Territory, Occupied"
+			,"Syrian Arab Republic","Tunisia","Turkey","Iran, Islamic Republic Of","Jordan","Cyprus","Western Sahara"]
+	},
+	{
+		"Ethnicity":"Gulf",
+		"Countries":["Kuwait","Oman","Qatar","Saudi Arabia","United Arab Emirates","Yemen","Bahrain"]
+	},
+	{
+		"Ethnicity":"Latin",
+		"Countries":["Argentina","Bolivia","Brazil","Paraguay","Peru","Chile","Colombia","Costa Rica","Cuba","Latvia","Uruguay"
+			,"Venezuela","Mexico","Honduras","Suriname"]
+	},
+	{
+		"Ethnicity":"Caribbean",
+		"Countries":["Jamaica","El Salvador","Ecuador","Panama","Puerto Rico","Trinidad and Tobago"
+			,"Turks and Caicos Islands","Bermuda"]
+	},
+	{
+		"Ethnicity":"Europe & US & North Asia",
+		"Countries":["Albania","American Samoa","Armenia","Australia","Austria","Belarus","Belgium","Bosnia and Herzegovina"
+			,"British Indian Ocean Territory","Bulgaria","Canada","Croatia","Czech Republic","Denmark","Dominica","Dominican Republic"
+			,"Estonia","Faroe Islands","Finland","France","French Guiana","French Polynesia","French Southern Territories"
+			,"Georgia","Germany","Greece","Greenland","Holy See (Vatican City State)","Hungary","Iceland","Italy","Jersey"
+			,"Liechtenstein","Lithuania","Luxembourg","Macedonia, The Former Yugoslav Republic of","Malta","Moldova, Republic of"
+			,"Monaco","Netherlands","Norway","Poland","Portugal","Romania","Russian Federation","Saint Lucia","Saint Pierre and Miquelon"
+			,"Saint Vincent and the Grenadines","San Marino","Serbia and Montenegro","Slovakia","Slovenia","South Georgia and the South Sandwich Islands"
+			,"Spain","Sweden","Switzerland","Ukraine","United Kingdom","United States","Wallis and Futuna","Azerbaijan"]
+	},
+	{
+		"Ethnicity":"SouthEast Asia",
+		"Countries":["Indonesia","Thailand","Singapore","Malaysia","Myanmar","Philippines","Cambodia","Lao People\"S Democratic Republic"
+			,"Brunei Darussalam","Timor-Leste"]
+	},
+	{
+		"Ethnicity":"South Asia",
+		"Countries":["Bangladesh","India","Nepal","Sri Lanka","Maldives", "Afghanistan"]
+	},
+	{
+		"Ethnicity":"East Asia",
+		"Countries":["China","Hong Kong","Japan","Korea, Democratic People\"S Republic of","Korea, Republic of"
+			,"Taiwan, Province of China"]
+	},
+	{
+		"Ethnicity":"Pacific Ocean",
+		"Countries":["Kiribati","Nauru","New Zealand","Pitcairn","Tokelau","Tonga","Tuvalu","Vanuatu"]
+	}
+]
